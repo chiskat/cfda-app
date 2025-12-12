@@ -11,8 +11,9 @@ steps:
       - name: yarncache
         path: /usr/local/share/.cache/yarn
     commands:
-      - yarn --registry=https://registry.yarnpkg.com
-      - yarn build
+      - npm i -g cnpm
+      - cnpm i
+      - cnpm run build
     environment:
       CI: false
       S3_ENDPOINT:
