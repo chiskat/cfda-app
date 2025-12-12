@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - aws-sdk
+  - core-js
+  - ejs
+  - node-sass
+  - yorkie
