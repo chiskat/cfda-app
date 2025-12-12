@@ -14,6 +14,7 @@ steps:
       - yarn --registry=https://registry.yarnpkg.com
       - yarn build
     environment:
+      CI: false
       S3_ENDPOINT:
         from_secret: S3_ENDPOINT
       S3_REGION:
