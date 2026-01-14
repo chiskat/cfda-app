@@ -140,12 +140,11 @@
 </template>
 
 <script>
-import { record, list, recordResult, recordHandle } from "@/api/record.js";
+import { list, recordResult, recordHandle } from "@/api/record.js";
 import { biz } from "@/api/biz.js";
 import { task } from "@/api/task.js";
 import { plan } from "@/api/plan.js";
 import { staff } from "@/api/staff.js";
-import { Promise } from "q";
 
 export default {
   name: "special_singletask",

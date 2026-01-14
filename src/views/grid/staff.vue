@@ -135,7 +135,7 @@ export default {
     async init() {
       this.loading = true;
       this.depData = (await dep()).data;
-      this.cascadeDepData = (await dep(null, false, true)).data;
+      this.cascadeDepData = (await dep(null, 'cascade=1')).data;
       let staffList = (await staff()).data;
 
       staffList.forEach(staff => {

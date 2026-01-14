@@ -2,26 +2,51 @@ kind: pipeline
 name: default
 
 workspace:
-  path: /home/node/app
+  path: /cfda-app
+
+volumes:
+  - name: webroot
+    host:
+      path: /root/www
+  - name: pnpm-cache
+    host:
+      path: /root/.pnpm-cache
+  - name: envfile
+    host:
+      path: /root/project-config/cfda-app/.env.production.local
+
+trigger:
+  branch:
+    - master
 
 steps:
   - name: build
-    image: paperplanecc/baseline-node20:2025.11.30
+    image: chiskat/baseline-node20:2026.1.14
     commands:
-      - yarn
-      - yarn build
-    environment:
-      CI: false
-      S3_ENDPOINT:
+      - pnpm i
+      - pnpm build
+    volumes:
+      - name: pnpm-cache
+        path: /cfda-app/.pnpm-store
+      - name: envfile
+        path: /cfda-app/.env.production.local
+
+  - name: deploy-upload-cdn
+    image: plugins/s3
+    settings:
+      endpoint:
         from_secret: S3_ENDPOINT
-      S3_REGION:
+      region:
         from_secret: S3_REGION
-      S3_BUCKET_NAME:
+      bucket:
         from_secret: S3_BUCKET_NAME
-      S3_ACCESS_KEY_ID:
+      access_key:
         from_secret: S3_ACCESS_KEY_ID
-      S3_SECRET_ACCESS_KEY:
+      secret_key:
         from_secret: S3_SECRET_ACCESS_KEY
+      source: ./public/**/*
+      target: /paperplane-cfda
+      strip_prefix: public
 
   - name: deploy
     image: alpine:3.20
@@ -29,15 +54,6 @@ steps:
       - name: webroot
         path: /webroot
     commands:
-      - mkdir -p /webroot/cfda-fe/
-      - rm -rf /webroot/cfda-fe/*
-      - cp -rf ./dist/* /webroot/cfda-fe/
-
-volumes:
-  - name: webroot
-    host:
-      path: /root/www
-
-trigger:
-  branch:
-    - master
+      - mkdir -p /webroot/paperplane-cfda/
+      - rm -rf /webroot/paperplane-cfda/*
+      - cp -rf ./dist/* /webroot/paperplane-cfda/

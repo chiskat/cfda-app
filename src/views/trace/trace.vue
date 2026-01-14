@@ -243,7 +243,7 @@
 
 <script>
 import { plan, planState } from "@/api/plan.js";
-import { task, list as TaskList, taskState } from "@/api/task.js";
+import { list as TaskList, taskState } from "@/api/task.js";
 import { biz } from "@/api/biz.js";
 import { staff } from "@/api/staff.js";
 import { risk, riskKind, riskLv } from "@/api/risk.js";

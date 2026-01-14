@@ -178,7 +178,7 @@ export default {
     async init() {
       this.loading = true;
       this.depData = (await dep()).data;
-      this.cascadeDepData = (await dep(null, false, true)).data;
+      this.cascadeDepData = (await dep(null, 'cascade=1')).data;
       let bizList = (await biz()).data;
 
       bizList.forEach(biz => {
@@ -239,7 +239,7 @@ export default {
 
       if (this.search.area && this.search.area.length > 0) {
         let areaSearch = this.search.area.slice(-1)[0];
-        tableData = tableData.filter(biz => biz.dep._rel.includes(areaSearch));
+        tableData = tableData.filter(biz => (biz.dep._rel || []).includes(areaSearch));
       }
 
       return tableData;

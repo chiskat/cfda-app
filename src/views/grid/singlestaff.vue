@@ -168,7 +168,7 @@ export default {
       this.isNew = staffId === "new";
       this.edit = staffId === "new";
 
-      this.cascadeDepData = (await dep(null, false, true)).data;
+      this.cascadeDepData = (await dep(null, 'cascade=1')).data;
       if (!this.isNew) {
         this.origin = (await staff(staffId)).data;
         this.dep = (await dep(this.origin.dep)).data._rel;

@@ -1,28 +1,31 @@
-### 食药监局CFDA项目Web端
+# 食药监局 CFDA 项目 Web 前端
 
-本项目必须和食药监局[后台API](https://git.paperplane.cc/jia-niang/cfda-api)配套使用  
-Github克隆或下载本项目后，使用前必须修改项目根目录下的`.env`配置文件  
+## 介绍
 
-本系统依赖百度地图API，需要[申请](http://lbsyun.baidu.com/apiconsole/key)百度地图Key  
-配置文件中的`VUE_APP_BDMAP_KEY`即为百度地图申请的Key  
-配置文件中的`VUE_APP_MAP_CITY`即为百度地图默认的中心城市  
+本项目是食药监局 CFDA Web 前端，需配合 [CFDA 服务端](https://git.paperplane.cc/chiskat/cfda-api) 使用
 
-在cmd指令中使用`cd`进入本项目根目录  
-初次使用必须安装环境与依赖：  
-```
+## 配置项
+
+初次启动必须进行配置，请参考 `.env.example`
+
+## 本地开发
+
+安装依赖：
+
+```bash
 npm i
 ```
-依赖环境只需要安装一次  
 
-运行测试服务器：  
-```
-npm run serve
+开发模式运行：
+
+```bash
+npm run dev
 ```
 
-打包：  
-```
+## 生产环境编译静态网站
+
+编译构建静态网站（输出到 `dist/` 目录）：
+
+```bash
 npm run build
 ```
-这会产生一个`dist`目录，其中的文件即可部署在静态服务器上  
-注意部署时的API地址可能和开发时不同  
-Vue-cli支持配置不同环境的`.env`文件，可以查看[文档](https://cli.vuejs.org/zh/guide/mode-and-env.html#模式)  

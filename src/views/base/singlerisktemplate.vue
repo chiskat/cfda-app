@@ -108,7 +108,7 @@
 </template>
 
 <script>
-import { uuid, copy, date } from "@/utils/utils.js";
+import { copy, date } from "@/utils/utils.js";
 import { staff } from "@/api/staff.js";
 import { dep } from "@/api/dep.js";
 import { template, emptyTemplate } from "@/api/template";

@@ -99,6 +99,7 @@
 
 <script>
 import menu from "@/menu.js";
+import { logout } from './api/action';
 
 export default {
   name: "app",
@@ -156,7 +157,8 @@ export default {
       this.$store.state.notice.splice(i, 1);
     },
 
-    logout() {
+    async logout() {
+      await logout()
       this.$store.commit("logout");
       this.$router.push("/login");
     }
