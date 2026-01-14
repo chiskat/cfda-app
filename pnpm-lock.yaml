@@ -39,6 +39,9 @@ importers:
       '@vue/cli-service':
         specifier: ^3.0.0
         version: 3.12.1(lodash@4.17.21)(vue-template-compiler@2.7.16)
+      cache-loader:
+        specifier: 2.0.1
+        version: 2.0.1(webpack@4.47.0)
       sass:
         specifier: ^1.97.2
         version: 1.97.2

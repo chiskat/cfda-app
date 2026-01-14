@@ -19,6 +19,7 @@
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
+    "cache-loader": "2.0.1",
     "sass": "^1.97.2",
     "vue-cli-plugin-element": "^1.0.0"
   },
