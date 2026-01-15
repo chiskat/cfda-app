@@ -46,7 +46,7 @@ steps:
         from_secret: S3_SECRET_ACCESS_KEY
       source: ./dist/**/*
       target: /paperplane-cfda
-      strip_prefix: public
+      strip_prefix: dist
 
   - name: deploy
     image: alpine:3.20
