@@ -44,7 +44,7 @@ steps:
         from_secret: S3_ACCESS_KEY_ID
       secret_key:
         from_secret: S3_SECRET_ACCESS_KEY
-      source: ./public/**/*
+      source: ./dist/**/*
       target: /paperplane-cfda
       strip_prefix: public
 
