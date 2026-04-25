@@ -7,10 +7,10 @@ workspace:
 volumes:
   - name: webroot
     host:
-      path: /root/www
+      path: /root/container-config/www
   - name: pnpm-cache
     host:
-      path: /root/.pnpm-cache
+      path: /root/container-cache/.pnpm-cache
   - name: envfile
     host:
       path: /root/project-config/cfda-app/.env.production.local
